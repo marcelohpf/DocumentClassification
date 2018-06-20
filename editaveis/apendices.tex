@@ -64,7 +64,6 @@ namesDF = namesDF[namesDF.name.str.len() > 2]
 namesDF.to_csv('names.csv', index=False)
 \end{lstlisting}
 
-\end{apendicesenv}
 
 \chapter{Limpeza dos dados}
 \label{sec:apendiceB}
@@ -207,3 +206,5 @@ class CorpusHandler:
         document = ' '.join([cls.stemmer.stem(word) for word in tokens])
         return document
 \end{lstlisting}
+
+\end{apendicesenv}

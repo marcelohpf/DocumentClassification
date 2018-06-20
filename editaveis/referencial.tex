@@ -3,7 +3,7 @@
 Este capítulo apresentará o referencial necessário para entendimento do conteúdo técnico da solução e contexto do problema.
 \section{Classificação de documentos}
 
-Nas áreas de NLP, existem grupos de técnicas para lidar com documentos de texto, assim como no ML. Destas, serão abordados apenas os conjuntos para a classificação de corpus de textos.
+Nas áreas de NLP, existem grupos de técnicas para lidar com documentos de texto, assim como em ML. Destas, serão abordados apenas os conjuntos para a classificação de corpos de textos.
 
 \subsection{Técnicas de pré-processamento}
 As técnicas de pré-processamento utilizadas para a classificação de textos são as de transformação do texto em símbolos, remoção de palavras recorrentes, a radicalização, normalização e criação de regras específicas para cada contexto utilizando de expressões regulares \cite{OLIVEIRA2017}.
@@ -11,7 +11,7 @@ As técnicas de pré-processamento utilizadas para a classificação de textos s
 \subsubsection{Transformação em símbolos}
 
 A transformação em símbolos, trata-se de criar símbolos das palavras identificadas no texto \cite{MANNING2008}.
-A complexidade de como transformar a sentença numa lista de símbolos vai depender do contexto. Pode-se transformar endereços de rede, recursos de \textit{web sites} em representações únicas \cite{MANNING2008}. Na Tabela \ref{tab:palavrasSimbolos} é apresentado a separação da sentença em símbolos.
+A complexidade de como transformar a sentença numa lista de símbolos vai depender do contexto. Pode-se transformar endereços de rede, recursos de \textit{web site} em representações únicas \cite{MANNING2008}. Na Tabela \ref{tab:palavrasSimbolos} é apresentado a separação da sentença em símbolos.
 
 \begin{table}[h]
 	\centering    
@@ -20,7 +20,7 @@ A complexidade de como transformar a sentença numa lista de símbolos vai depen
 	\begin{tabular}{|p{7cm}|p{7cm}|}
     \hline
     \textbf{Texto original} & \textbf{Texto filtrado}\\ \hline
-	juiz federal relator formar incisar iii LEI\_11419 dezembro resolução trf região março conferência autenticidade documento disponível endereçar eletrônico SITE & "juiz", "federal", "relator", "formar", "incisar", "iii", "LEI\_11419", "dezembro", "resolução", "trf", "região", "março", "conferência", "autenticidade", "documento", "disponível", "endereçar", "eletrônico", "SITE"
+	juiz federal relator formar incisar iii lei nº 11419 dezembro resolução trf região março conferência autenticidade documento disponível endereçar eletrônico www.stf.org.br & "juiz", "federal", "relator", "formar", "incisar", "iii", "LEI\_11419", "dezembro", "resolução", "trf", "região", "março", "conferência", "autenticidade", "documento", "disponível", "endereçar", "eletrônico", "SITE"
     \\ \hline
     \end{tabular}
 \end{table}
@@ -59,7 +59,7 @@ Estas técnicas auxiliam na classificação dos textos, pois ressaltam proprieda
 
 \subsubsection{Expressões regulares}
 
-Quando deseja-se encontrar algum padrão específico em um texto, utiliza-se de regras de formação específicas para capturar todos os grupos que se encaixaram. O desta técnica auxilia a encontrar padrões, realizar substituições, remover trechos do texto. É bastante útil por diminuir a complexidade de código para realizar manipulações em \textit{strings} \cite{GOYUAERTS2012}. A Tabela \ref{tab:regex} mostra um exemplo da aplicação das expressões regulares presentes no \ref{sec:apendiceB}.
+Quando deseja-se encontrar algum padrão específico em um texto, utiliza-se de regras de formação para capturar todos os grupos que se encaixaram. Esta técnica também  auxilia a realizar substituições, remover trechos do texto. Ela diminui a complexidade de código para realizar manipulações em \textit{strings} \cite{GOYUAERTS2012}. A Tabela \ref{tab:regex} mostra um exemplo da aplicação das expressões regulares presentes no Apêndice \ref{sec:apendiceB}.
 
 \begin{table}[h]
 	\centering    
@@ -74,11 +74,11 @@ Quando deseja-se encontrar algum padrão específico em um texto, utiliza-se de 
 
 \subsection{Representações de textos}
 
-Quando faz-se o processamento de linguagem natural, utiliza-se diferentes formas de representação para o texto ao invés de \textit{string}. As técnicas utilizadas são as de codificação rápida única, \textit{one-hot-encoder}, \textit{bag of words} (BoW) e \textit{word embedding}.
+Quando faz-se o processamento de linguagem natural, utiliza-se diferentes formas de representação para o texto ao invés de \textit{string}. As técnicas utilizadas são as de \textit{one-hot-encoder}, \textit{bag of words} (BoW) e \textit{word embedding}.
 
 \subsubsection{One-hot-encoder}
 
-Esta técnica consiste em transformar cada palavra num único vetor, no qual a posição da palavra no dicionário de dados receberá o valor 1. Desta forma, uma sentença se tornará uma matriz, como no exemplo abaixo.
+Esta técnica consiste em transformar cada palavra num único vetor, no qual a posição da palavra no dicionário de dados receberá o valor 1. Desta forma, uma sentença se tornará uma matriz, como no exemplo abaixo \cite{BRINK2015}.
 
 \begin{center}
     $
@@ -93,7 +93,7 @@ Esta técnica consiste em transformar cada palavra num único vetor, no qual a p
 
 \subsubsection{Bag of words}
 
-Diferentemente do \textit{One-hot-encoder}, o BoW transforma toda a sentença em apenas um vetor. Cada posição deste, possuirá a quantidade de vezes que um símbolo apareceu. Ela permite que possam ser removidas com alta ou baixa incidência.
+Diferentemente do \textit{One-hot-encoder}, o BoW transforma toda a sentença em apenas um vetor. Cada posição deste, possuirá a quantidade de vezes que um símbolo apareceu. Ela permite que possam ser removidas palavras com alta ou baixa incidência \cite{BRINK2015}.
 
 \begin{center}
     $
@@ -107,14 +107,14 @@ Diferentemente do \textit{One-hot-encoder}, o BoW transforma toda a sentença em
 
 \subsubsection{Word Embedding}
 
-O \textit{word embedding}, diferentemente dos métodos anteriores que são representados como símbolos únicos, este método de representação lida com uma representação distribuída \cite{GOLDBERG2017}.
+O \textit{word embedding}, diferentemente dos métodos anteriores que são representados como símbolos únicos, lida com uma representação distribuída \cite{GOLDBERG2017}.
 
-Neste método, o significado de uma palavra, que foi capturada numa janela de contexto, é representado na forma de um vetor. Cada dimensão deste vetor não representa necessariamente um aspecto do mundo real, mas o conjunto delas que trás alguma significância \cite{GOLDBERG2017}. Entende-se as palavras como vetores que podem possuir relações em seu espaço de representação como na Figura \ref{fig:wordtovec}. 
+Neste método, o significado de uma palavra, que foi capturada numa janela de contexto, é representado na forma de um vetor. Cada dimensão deste vetor não representa necessariamente um aspecto do mundo real, mas o conjunto delas que trás alguma significância \cite{GOLDBERG2017}. Entende-se as palavras como vetores que podem possuir relações em seu espaço de representação, como na Figura \ref{fig:wordtovec}. 
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[keepaspectratio=true,scale=0.5]{figuras/wordtovec}
-    \caption{Representação discreta de palavras. Fonte: \cite[Página 479]{MIKOLOV2013b}.}
+    \caption[Representação discreta de palavras]{Representação discreta de palavras. Fonte: \cite[Página 479]{MIKOLOV2013b}.}
     \label{fig:wordtovec}
 \end{figure}
 Com os vetores das palavras Rei, Rainha, Homem e Mulher torna-se possível realizar consultas às palavras da forma: $vect('Rei') + vect('Mulher') - vect('Homem')$, no qual a resposta é Rainha \cite{MIKOLOV2013b}. Esta proposição também se confirma para outras relações como País-Capital e Adjetivos Aumentativo-Diminutivo \cite{MIKOLOV2013a}.
@@ -123,7 +123,7 @@ Com os vetores das palavras Rei, Rainha, Homem e Mulher torna-se possível reali
     $
     \begin{array}{rlrrrrr}
         \label{ex:we}
-        Palavra = &  & Sexo & Realeza & Pluralidade & Parentesco \\ \hline
+        Palavra = & [ & Sexo & Realeza & Pluralidade & Parentesco &] \\ \hline
         Rei = & [ & 1 & 1 & -1 & 0,5 & ]  \\
 		Reis = & [ & 1 & 1 & 1 & 0,5 & ]  \\
         Rainha = & [ & -1 & 1 & -1 & 0,5 & ] \\
@@ -136,13 +136,13 @@ Com os vetores das palavras Rei, Rainha, Homem e Mulher torna-se possível reali
   	$
 \end{center}
 
-No exemplo acima, cada palavra é representada por um vetor, no qual, foi definido apenas quatro dimensões de exemplos. As duas principais formas de chegar a este resultado é pelo \textit{Word2Vect} elaborado por \citeauthor{MIKOLOV2013a} (\citeyear{MIKOLOV2013a}) e o \textit{GloVe} definidor por \citeauthor{PENNINGTON2014} (\citeyear{PENNINGTON2014}).
+No exemplo acima, cada palavra é representada por um vetor, no qual, foi definido apenas quatro dimensões de exemplos. As duas principais formas de chegar a este resultado é pelo \textit{Word2Vect} elaborado por \citeauthor{MIKOLOV2013a} (\citeyear{MIKOLOV2013a}) e o \textit{GloVe} definido por \citeauthor{PENNINGTON2014} (\citeyear{PENNINGTON2014}).
 
 \subsection{Técnicas de ML}
 
-As principais técnicas para aprendizado de máquina para classificação de texto são Máquinas de Vetores de Suporte (SVM), K Vizinhos Próximos, Multinomial Naive Bayes.
+As principais técnicas para aprendizado de máquina para classificação de texto são Máquinas de Vetores de Suporte (do inglês \textit{Suporte Vector Machine} SVM), K Vizinhos Próximos, Multinomial Naive Bayes.
 
-Para este trabalho, utilizar-se-a apenas os modelos de SVM. Isto porque ele é \textbf{BOM} para lidar com vetores que possuem muitas características. Além disso, seu algoritmo possibilita extrair dos vetores de suporte, os quais são as dimensões mais importantes para realizar a separabilidade dos dados \cite{HEARST1995}.
+Para este trabalho, utilizar-se-a apenas o modelo SVM. Isto porque serve para lidar com vetores que possuem muitas características. Além disso, seu algoritmo possibilita extrair dos vetores de suporte, os quais são as dimensões mais importantes para realizar a separabilidade dos dados \cite{HEARST1995}.
 
 \subsubsection{Máquinas de Vetores de Suporte}
 
@@ -150,7 +150,7 @@ Este algoritmo recebe os vetores de entrada, com uma alta dimensionalidade, e fa
 
 \begin{figure}[h]
 	\centering
-    \includegraphics[keepaspectratio=true,scale=0.4]{figuras/svmExample}
+    \includegraphics[keepaspectratio=true,scale=0.7]{figuras/svmExample}
 	\caption[SVM Funcionamento]{Funcionamento do algoritmo SVM. Fonte: \cite[Acesso em 10 de Junho de 2018.]{PEDREGOSA2011}}
 	\label{fig:svmExample}
 \end{figure}
@@ -161,15 +161,15 @@ A função de classificação do SVM é baseada em hiperplanos. O algoritmo busc
 	f(x) = sign(\sum_{i=1}^{t} v_i \cdot k(x, x_i) + b)
 \end{equation}
 
-A Equação \ref{eq:svmFormula} é a de classificação utilizada neste algoritmo. A função \textbf{k} é a função que representa o núcleo, na implementação de \citeauthor{PEDREGOSA2011} (\citeyear{PEDREGOSA2011}) existe disponível o: linear, polinomial, função de base radial e o de sigmoide.
+A Equação \ref{eq:svmFormula} é a de classificação utilizada neste algoritmo. A função $k$ é a que representa o núcleo, na implementação de \citeauthor{PEDREGOSA2011} (\citeyear{PEDREGOSA2011}) existe disponível o: linear, polinomial, função de base radial e o de sigmoide.
 
 O valor de $x$ em \ref{eq:svmFormula} representa o vetor de entrada a ser classificado. Já o $x_{i}$ representa os vetores de suporte. Os pesos $v_{i}$, são calculados através de uma solução quadrática, no qual são a combinação linear dos padrões de entrada \cite{SMOLA2004}. Os valores de $b$, são limiares para maximização das margens entre duas classes distintas \cite{HEARST1995}.
 
 \subsubsection{Redes Neurais}
 
-Um dos algoritmos desenvolvidos para realizar o aprendizado de máquina, foi baseado em um neurônio humano. Este é composto por vários sinais de entrada, um neurônio de processamento com uma única saída \cite{GOLDBERG2017}.
+Um dos algoritmos desenvolvidos para realizar o aprendizado de máquina, foi baseado em um neurônio humano. Este é composto por vários sinais de entrada, uma função de junção, outra de ativação e com uma única saída \cite{GOLDBERG2017}.
 
-Como na figura \ref{fig:perceptron}, há pesos para os vetores de entrada, que são todos somados e em seguida passam por uma função de ativação para em seguida, dar o resultado do neurônio \cite{RASCHKA2015}.
+Como na figura \ref{fig:perceptron}, há pesos para os vetores de entrada, que são todos somados e, em seguida, passam por uma função de ativação para gerar o resultado do neurônio \cite{RASCHKA2015}.
 
 \begin{figure}[h]
 	\centering
@@ -179,7 +179,13 @@ Como na figura \ref{fig:perceptron}, há pesos para os vetores de entrada, que s
 	\label{fig:perceptron}
 \end{figure}
 
-Agrupou-se os neurônios para criar uma rede, na qual ela possui diferentes camadas. Onde há neurônios com a coloração verde, indicam que apenas estes foram ativados durante o processamento.
+Agrupou-se os neurônios para criar uma rede, na qual ela possui diferentes camadas.
+
+\begin{description}
+	\item \textbf{Entrada}: esta camada não possui funções de ativação, sua função é propagar os dados de entrada para a camada seguinte.
+    \item \textbf{Camadas ocultas}: são as camadas que possuem funções de ativações. Uma camada oculta pode possuir vários neurônios.
+    \item \textbf{Saída}: esta é a ultima camada de uma rede neural, ela que irá retornar o resultado do processamento realizado pelas camadas ocultas.
+\end{description}
 
 \begin{figure}[h]
 	\centering
@@ -188,12 +194,8 @@ Agrupou-se os neurônios para criar uma rede, na qual ela possui diferentes cama
 	\label{fig:redeNeural}
 \end{figure}
 
-\begin{description}
-	\item \textbf{Entrada}: esta camada não possui funções de ativação, sua função é propagar os dados de entrada para a camada seguinte.
-    \item \textbf{Camadas ocultas}: são as camadas que possuem funções de ativações. Uma camada oculta pode possuir vários neurônios.
-    \item \textbf{Saída}: esta é a ultima camada de uma rede neural, ela que irá retornar o resultado do processamento realizado pelas camadas ocultas.
-\end{description}
-
+Os neurônios com a coloração verde na figura \ref{fig:redeNeural}, indicam que apenas estes foram ativados durante o processamento.
+ 
 O fluxo comum da execução de uma rede neural é o recebimento dos dados de entrada na primeira camada, em seguida há a propagação dos valores para uma camada oculta, após o cálculo de ativação, os dados são propagados novamente para a próxima camada, até que ao final, chega-se na camada de saída \cite{GOLDBERG2017}.
 
 O processo de propagação (\textit{feed-forward propagation}) é representado na Figura \ref{fig:redeNeural}, no qual há propagação dos valores com o produto entre o vetor $x$ e $W$ \cite{GOLDBERG2017}. A representação de vetores da computação para os pesos são feitas de forma que o neurônio da camada seguinte $i$ tem o peso associado a posição $j$ ($W[i][j]$) \cite{NIELSEN2015}.
@@ -215,7 +217,7 @@ Para modelos com mais camadas do que foi ilustrado na Figura \ref{fig:redeNeural
     \hat{y} = y^{N-1}W^{N}
 \end{displaymath}
 
-Para ajustar os valores dos pesos e vetor de viés $W^{i}$ e $b^{i}$ em relação ao distanciamento entre o $\hat{y}$ e $y$ para calcular o quanto os neurônios estão corretos. Utiliza-se de funções de error $L(\hat{y}, y)$ \cite{GOLDBERG2017}, calcula-se o erro na camada de saída e este deve ser propagado para a camada anterior. Com isto todas as camadas vão ajustando recursivamente seus pesos e vetores de viés \cite{NIELSEN2015}. Este processo chama-se de retro-propagação (\textit{back-propagation}) apresentado na Figura \ref{fig:redeNeuralBackprop}.
+Para ajustar os valores dos pesos e vetor de viés $W^{i}$ e $b^{i}$, calcula-se o quanto os neurônios estão corretos em relação ao distanciamento entre o $\hat{y}$ e $y$. Utiliza-se da função de erro $L(\hat{y}, y)$ \cite{GOLDBERG2017}, para calcular o erro na camada de saída. Este deve ser propagado para a camada anterior, com isto, todas as camadas vão ajustando recursivamente seus pesos e vetores de viés \cite{NIELSEN2015}. Este processo chama-se de retro-propagação (\textit{back-propagation}) apresentado na Figura \ref{fig:redeNeuralBackprop}.
 
 \begin{figure}[h]
 	\centering
@@ -224,7 +226,7 @@ Para ajustar os valores dos pesos e vetor de viés $W^{i}$ e $b^{i}$ em relaçã
 	\label{fig:redeNeuralBackprop}
 \end{figure}
 
-Na Figura \ref{fig:redeNeuralBackprop}, o valor de $g'$ é a derivada para a função de ativação, executada no valor de $y^{*}$ o qual é o resultado da operação de $x^{i}W^{i} + b^{i}$ sem aplicar a função de ativação $g$ \cite{NIELSEN2015}.
+Na Figura \ref{fig:redeNeuralBackprop}, o valor de $g'$ é a derivada para a função de ativação, executada no valor de $y^{*}$, o qual é o resultado da operação de $x^{i}W^{i} + b^{i}$ sem aplicar a função de ativação $g$ \cite{NIELSEN2015}.
 
 A operação de $\bigodot$ é o produto de Hadamard, ela representa multiplicar os elementos de cada posição de um vetor $a_{n}$ pelo do valor de $b_{n}$ resultando em um outro vetor $c_{n}$ \cite{NIELSEN2015}. A Equação \ref{eq:hadamard} ilustra essa operação entre os vetores.
 
@@ -250,21 +252,21 @@ A operação de $\bigodot$ é o produto de Hadamard, ela representa multiplicar 
         63 \\
 	\end{bmatrix}     
 \end{equation}
-Com a função de $\delta^{i}$, faz-se a atualização dos pesos e vetores de viés. A estrutura é recursiva, de forma que para calcular o $\delta^{i}$ é necessário ter calculado o valor de $\delta^{i+1}$. A prova matemática para a retro-propagação e a definição da função $L(\hat{y}, y)$ encontra-se em \citeauthor{NIELSEN2015} (\citeyear{NIELSEN2015}).
+Com a função de $\delta^{i}$, faz-se a atualização dos pesos e vetores de viés. A estrutura é recursiva, de forma que, para calcular o $\delta^{i}$, é necessário ter calculado o valor de $\delta^{i+1}$. A prova matemática para a retro-propagação e a definição da função $L(\hat{y}, y)$ encontra-se em \citeauthor{NIELSEN2015} (\citeyear{NIELSEN2015}).
 
 A retro-propagação é utilizada juntamente com uma função de gradiente. Com esta combinação, faz-se os ajustes nos pesos das camadas, de forma que, a cada nova predição de $\hat{y}$, é feita uma retro-propagação calculando os valores mínimos para a função $L(y, \hat{y})$ \cite{NIELSEN2015}.
 
-Com as técnicas apresentadas até aqui, é possível implementar uma rede neral Multicamadas de Perceptron (\textit{Multilayer Perceptron} - MLP). Existem outros tipos de arquiteturas, como as Redes Neurais Recorrentes (RNN), as Redes Neurais Convolucionais (CNN). Elas podem ser utilizadas como camadas internas de uma MLP, bem como podem existir camadas de incorporação, de conjugação entre outras \cite{GOLDBERG2017}.
+Com as técnicas apresentadas, é possível implementar uma rede neral Multicamadas de Perceptron (do inglês \textit{Multilayer Perceptron} - MLP). Existem outros tipos de arquiteturas, como as Redes Neurais Recorrentes (RNN), as Redes Neurais Convolucionais (CNN). Elas podem ser utilizadas como camadas internas de uma MLP, bem como podem existir camadas de incorporação e de conjugação \cite{GOLDBERG2017}.
 
 \subsection{Aprendizado Profundo}
 
-O aprendizado de máquina profundo, é quando utiliza-se várias camadas ocultas em uma rede neural para realizar o aprendizado. Não é necessariamente restritivo fazer uso apenas de um tipo de camada, ou funções de ativação para construir uma rede profunda.
+O aprendizado de máquina profundo é quando utiliza-se várias camadas ocultas em uma rede neural para realizar o aprendizado. Não é restrito o uso de apenas de um tipo de camada ou função de ativação para a construção de uma rede profunda.
 
 \subsubsection{Redes Convolucionais}
 
-Este tipo de arquitetura, baseia-se na aplicação da operação de convolução nos dados de entrada e em seguira realizar junções. Uma CNN é definida como extratora de características de dados textuais por realizar as etapas de convolução e junção repetidas vezes \cite{GOLDBERG2017}. 
+Este tipo de arquitetura, baseia-se na aplicação da operação de convolução nos dados de entrada e, em seguida, realizar junções. Uma CNN é definida como extratora de características de dados textuais por realizar as etapas de convolução e junção repetidas vezes \cite{GOLDBERG2017}. 
 
-O uso dessa rede não se limita apenas a extração de características, pode ser utilizada também, sozinha para classificar textos utilizando abordagem de muito profunda com uma última camada de classificação linear \cite{CONNEAU2016}.
+O uso dessa rede não se limita apenas a extração de características, pode ser utilizada também, sozinha, para classificar textos utilizando abordagem de rede neural muito profunda com uma última camada de classificação linear \cite{CONNEAU2016}.
 
 \begin{figure}[h]
 	\centering
@@ -280,7 +282,7 @@ Considera-se uma sentença $x_{1:n} = x_{1}, x_{2}, ..., x_{n}$ e um filtro $w$ 
 	c_{i} = g(w \cdot x_{i:i+h-1} + b)
 \end{equation}
 
-Na Figura \ref{fig:filterCnnText}, é apresentado graficamente o processo da aplicação de filtros de convolução, seguidos da operação de junção em 2 camadas. A partir da \ref{eq:convolutionText}, gera-se um novo conjunto de características extraídas do texto. Após isso, utiliza-se de uma camada de junção, para obter o maior valor daquele novo sub conjunto \cite{KIM2014}.
+Na Figura \ref{fig:filterCnnText}, é apresentado graficamente o processo da aplicação de filtros de convolução, seguidos da operação de junção em 2 camadas. A partir da Equação \ref{eq:convolutionText}, gera-se um novo conjunto de características extraídas do texto. Após isso, utiliza-se de uma camada de junção para obter o maior valor daquele novo sub conjunto \cite{KIM2014}.
 
 $$c = [ c_{1}, c_{2}, ..., c_{n-h+1} ]$$
 \begin{equation}
@@ -292,15 +294,15 @@ $$c = [ c_{1}, c_{2}, ..., c_{n-h+1} ]$$
     \end{cases}
 \end{equation}
 
-O resultado de $\hat{c}$, é o maior valor significativo para o filtro $w$ aplicado sobre uma sentença entrada $x$, em uma rede convolucional, tem-se vários filtros que possibilitam processar \cite{KIM2014} e identificar os n-gramas mais importantes \cite{GOLDBERG2017}.
+O resultado de $\hat{c}$, é o maior valor significativo para o filtro $w$ aplicado sobre uma sentença entrada $x$. Em uma rede convolucional, tem-se vários filtros que possibilitam processar \cite{KIM2014} e identificar os n-gramas mais importantes \cite{GOLDBERG2017}.
 
 \subsubsection{Redes Recorrentes}
 
-As redes neurais recorrentes possibilitam capturar características sequenciais dos dados. Ela também é capaz de receber um vetor de entrada com tamanho variado e entregar um tamanho fixo na camada de saída \cite{GOLDBERG2017}.
+As redes neurais recorrentes possibilitam capturar características sequenciais dos dados. Sendo capaz de receber um vetor de entrada com tamanho variado e entregar um tamanho fixo na camada de saída \cite{GOLDBERG2017}.
 
-Dado um vetor $x_{1:n} = x_{1}, x_{2}, ..., x_{n}$ de entrada na $f(x_{i:n})$ ele retornará um vetor $\hat{y}_{1:m} = \hat{y}_{1}, \hat{y}_{2}, ..., \hat{y}_{m}$, com o valor de $m$ fixado. Há um vetor de estados $s$ que carrega a informação do processamento dos neurônios anteriores. Uma rede neural recorrente é recursiva, pois o neurônio $i$, irá realizar o seguinte processamento. $s_{i} = RNN_{i}(x_{i}, s_{i-1})$ \cite{MIKOLOV2010}.
+Dado um vetor $x_{1:n} = x_{1}, x_{2}, ..., x_{n}$ de entrada na $f(x_{i:n})$, será retornado um vetor $\hat{y}_{1:m} = \hat{y}_{1}, \hat{y}_{2}, ..., \hat{y}_{m}$, com o valor de $m$ fixado. Há um vetor de estados $s$ que carrega a informação do processamento dos neurônios anteriores. Uma rede neural recorrente é recursiva, pois o neurônio $i$, realizará o seguinte processamento $s_{i} = RNN_{i}(x_{i}, s_{i-1})$ \cite{MIKOLOV2010}.
 
-Na figura \ref{fig:rnnText}, as funções de $R, O$ em cada perceptron são respectivamente as funções $f$ e $g$ da equação \ref{eq:recorrentText}. O $\theta$ apresentado na figura, são os valores.
+Na figura \ref{fig:rnnText}, as funções de $R, O$ em cada perceptron são, respectivamente, as funções $f$ e $g$ da equação \ref{eq:recorrentText}. O $\theta$, são os valores de hiperparametrização da rede.
 
 \begin{figure}[h]
 	\centering
@@ -309,7 +311,7 @@ Na figura \ref{fig:rnnText}, as funções de $R, O$ em cada perceptron são resp
 	\label{fig:rnnText}
 \end{figure}
 
-Para utilizar a RNN como método de classificação, deve-se aplicar uma função de ativação $g$. Na equação \ref{eq:recorrentText}, tem-se também a função $f$ que é uma função de ativação, responsável por juntar o vetor de estado $s_{i}$ com o vetor de entrada $x_{i}$ \cite{MIKOLOV2010}.
+Para utilizar a RNN como método de classificação, deve-se aplicar uma função de ativação $g$. Na equação \ref{eq:recorrentText}, tem-se também a função $f$, que é uma função de ativação responsável por juntar o vetor de estado $s_{i}$ com o vetor de entrada $x_{i}$ \cite{MIKOLOV2010}.
 
 \begin{equation}
 	\label{eq:recorrentText}
@@ -331,7 +333,7 @@ A seguir serão apresentados o método de validação cruzada para modelos de cl
 
 \subsubsection{Validação Cruzada}
 
-Para realizar a validação do modelo de classificação, há o modelo de validação cruzada. Este modelo consiste em dividir o conjunto de dados em validação (30\%) e treino (70\%). A Figura \ref{fig:crossValidation} apresenta o processo para realizar a validação de um modelo classificador \cite{BRINK2015}.
+Para realizar a validação do modelo de classificação, há o modelo de validação cruzada. Este consiste em dividir o conjunto de dados em validação (30\%) e treino (70\%). A Figura \ref{fig:crossValidation} apresenta o processo para realizar a validação de um modelo classificador \cite{BRINK2015}.
 
 \begin{figure}[h]
 	\centering
@@ -350,7 +352,7 @@ De acordo com \citeauthor{BRINK2015} (\citeyear{BRINK2015}), os passos para a va
 
 \subsubsection{Métricas}
 
-Em modelos de classificação, é possível determinar com exatidão o resultado esperado em categorias. Com isso é possível determinar os Verdadeiros Positivos (VP), Verdadeiro Negativos (VN) que são quando o modelo acerta a predição. Para quando ele erra, há o Falso Positivo (FP) e Falso Negativo (FN) \cite{BRINK2015}.
+Em modelos de classificação, é possível determinar com exatidão o resultado esperado em categorias. Com isso, é possível determinar os Verdadeiros Positivos, Verdadeiro Negativos que são quando o modelo acerta a predição. Para quando ele erra, há o Falso Positivo e Falso Negativo \cite{BRINK2015}.
 
 A Tabela \ref{tab:confusion} mostra a relação de Verdadeiros/Falsos Positivos/Negativos quando há mais de uma classe.
 
@@ -371,24 +373,24 @@ A Tabela \ref{tab:confusion} mostra a relação de Verdadeiros/Falsos Positivos/
     \end{tabular}
 \end{table}
 
-Os valores de eA, eB e eC representam erros na predição. Já os valores de VP\textsubscript{A}, VP\textsubscript{B} e VP\textsubscript{C} os acertos. Ao somar-se os valores da coluna A da Tabela \ref{tab:confusion}, tem-se o resultado do VP\textsubscript{A} + FN\textsubscript{A}, isso indica o quanto o modelo está predizendo a classe A. Enquanto que ao  somar a linha A, tem-se VP\textsubscript{A} + FP\textsubscript{A}, que representa o total de valores de A.
+Os valores de eA, eB e eC representam erros na predição, enquanto que os de VP\textsubscript{A}, VP\textsubscript{B} e VP\textsubscript{C}, os acertos. Ao somar-se os valores da coluna A na Tabela \ref{tab:confusion}, tem-se o resultado do VP\textsubscript{A} + FN\textsubscript{A}. Isso indica o quanto o modelo está predizendo a classe A. Ao mesmo tempo que somando-se a linha A, tem-se VP\textsubscript{A} + FP\textsubscript{A}, a qual representa o total de valores de A.
 
-Com esta tabela, é possível obter valores numéricos para as métricas de acurácia (ou eficiência), revocação (ou sensibilidade), taxa de verdadeiros negativos, taxa de falsos positivos e negativos, precisão e outras métricas que utilizam estas para seus cálculos \cite{CUADROSRODRIGUEZ2016}.
+Com esta tabela, é possível obter valores numéricos para as métricas de acurácia (ou eficiência), revocação (ou sensibilidade), taxa de verdadeiros negativos, taxa de falsos positivos e negativos, precisão. Além de outras métricas que utilizam estas para seus cálculos \cite{CUADROSRODRIGUEZ2016}.
 
-As métricas a seguir serão utilizadas validar a qualidade e evolução de performance dos modelos. Todas as métricas a seguir são descritas por \citeauthor{CUADROSRODRIGUEZ2016} (\citeyear{CUADROSRODRIGUEZ2016}):
+As métricas a seguir serão utilizadas a fim de validar a qualidade e evolução de performance dos modelos. Todas as métricas a seguir são descritas por \citeauthor{CUADROSRODRIGUEZ2016} (\citeyear{CUADROSRODRIGUEZ2016}):
 
 \begin{description}
 	\item Revocação: trata-se da taxa de acertos para a classe N. A fórmula é: $R = \frac{VP_{N}}{FP\textsubscript{N}}$.
     \item Precisão: também conhecido como 'acurácia da classe N', representa a proporção de VP para os valores preditos em N. $P = \frac{VP_{N}}{FN\textsubscript{N}}$
-    \item Taxa geral de acerto: também conhecido como 'acurácia do modelo', representa o quanto ele acerta de todas as classes. $G = \frac{\sum{VP_{N}}}{T}$
+    \item Taxa geral de acerto: também conhecido como "acurácia do modelo", representa o quanto ele acerta de todas as classes. $G = \frac{\sum{VP_{N}}}{T}$
     \item Chance geral de acerto: representa quais as chances do modelo predizer corretamente um novo dado. $CG = \frac{\sum{(FN_{N} \times FP_{N})}}{T^{2}}$
 \end{description}
 
-A revocação e precisão, são para analisar pontualmente o comportamento do modelo com cada classe. Enquanto que a taxa geral de acerto e a chance geral de acerto irão proporcionar a informação se o modelo é capaz de separar as peças. Além disso, a matriz de confusão (Tabela \ref{tab:confusion}) será utilizada para verificar quais classes são mais confundidas pelo modelo.
+A revocação e precisão são para analisar pontualmente o comportamento do modelo com cada classe. Enquanto que a taxa geral de acerto e a chance geral de acerto irão proporcionar a informação da capacidade do modelo em aprender como separar as peças. Além disso, a matriz de confusão (Tabela \ref{tab:confusion}) será utilizada para verificar quais classes são mais confundidas pelo modelo.
 
 \section{Sistema jurídico brasileiro}
 
-A estrutura do sistema jurídico brasileiro é estabelecido pela Constituição Federal de 1988. Ela prevê quais são os órgãos que compõe o Poder Judiciário, as competências que eles possuem, onde estão localizados, o tamanho dos representantes das instâncias superiores e como se faz a investidura ao cargo \cite{BRASIL1988}. Além da constituição, para um estudo mais completo, são necessárias as Lei n.º 8.457/1992, que estabelece a primeira instância da justiça militar \cite{BRASIL1992} e a n.º 12.665/2012, a qual define as turmas recursais para segunda instância de juizados especiais \cite{BRASIL2012}.
+A estrutura do sistema jurídico brasileiro é estabelecido pela Constituição Federal de 1988. Ela prevê quais são os órgãos que compõe o Poder Judiciário, as competências que eles possuem, onde estão localizados, o tamanho dos representantes das instâncias superiores e como se faz a investidura aos cargos \cite{BRASIL1988}. Além da Constituição, para um estudo mais completo, são necessárias as Lei n.º 8.457/1992, que estabelece a primeira instância da Justiça Militar \cite{BRASIL1992} e a n.º 12.665/2012, a qual define as Turmas Recursais para segunda instância de Juizados Especiais \cite{BRASIL2012}.
 
 Para ter um entendimento completo sobre as peças jurídicas e suas origens, é preciso ter conhecimento sobre como estão organizados os órgãos do Judiciário, pois são através deles que a população vivencia um processo \cite{JUNIOR2012}.
 
@@ -403,17 +405,19 @@ Para organizar melhor o trabalho do sistema judiciário, separou-se a justiça c
 
 \subsection{Instância superior - Tribunais Superiores}
 
-Como apresentado na Figura \ref{fig:sistemaJudiciario}, são tribunais superiores Supremo Tribunal Federal (STF), Supremo Tribunal de Justiça (STJ), Tribunal Superior Eleitoral (TSE), Tribunal Superior do Trabalho (TST) e Superior Tribunal Militar (STM) \cite{BRASIL1988}.
+Como apresentado na Figura \ref{fig:sistemaJudiciario}, são tribunais superiores Supremo Tribunal Federal, Supremo Tribunal de Justiça (STJ), Tribunal Superior Eleitoral (TSE), Tribunal Superior do Trabalho (TST) e Superior Tribunal Militar (STM) \cite{BRASIL1988}.
 
-O STF e o STJ não se encaixam em nenhuma das justiças comum ou especializadas. Pois cabe ao STF a responsabilidade de julgar, em recurso extraordinário, processos que tratam da infração a Constituição e ao STJ julgar, em Recurso Especial, a não obediência ou ilegitimidade das Leis Federais \cite{BRASIL1988}. Eles não são chamados de terceira instância devido ao princípio da dupla jurisdição. A correta denominação é instância superior, pois em Recurso Extraordinário (RE), julgam as teses jurídicas e não os fatos do processo \cite{JUNIOR2012}.
+O STF e o STJ não se encaixam em nenhuma das justiças comum ou especializadas. 
+Cabe ao STF a responsabilidade de julgar, em Recurso Extraordinário (RE), processos que tratam da infração a Constituição e ao STJ julgar, em Recurso Especial, a não obediência ou ilegitimidade das Leis Federais \cite{BRASIL1988}.
+Eles não são chamados de terceira instância devido ao princípio da dupla jurisdição. A correta denominação é instância superior, pois em Recurso Extraordinário, julgam as teses jurídicas e não os fatos do processo \cite{JUNIOR2012}.
 
 Os tribunais TST, TSE e STM compõe também a instância superior, mas estes julgam apenas os recursos de sua área de especialização na justiça \cite{BRASIL1988}.
 
-Todos possuem sua sede na capital do Brasil e o número mínimo de representantes está estabelecido diretamente na Constituição. Na Figura \ref{fig:sistemaJudiciario}, são representados estes valores para cada um deles. Estes Tribunais também possuem a competência para estabelecer o número de servidores nas instâncias inferiores \cite{BRASIL1988}.
+Todos possuem sua sede na capital do Brasil e o número mínimo de representantes está estabelecido diretamente na Constituição (\citeyear{BRASIL1988}). Na Figura \ref{fig:sistemaJudiciario}, são representados estes valores para cada um deles. Estes Tribunais também possuem a competência para estabelecer o número de servidores nas instâncias inferiores \cite{BRASIL1988}.
 
 \subsection{2ª instância - Tribunais}
 
-Além dos Tribunais de segunda instância da justiça especial: o Tribunal Regional Eleitoral, o Tribunal Regional do Trabalho e o Tribunal Regional Militar, tem-se os Tribunais que compõe a justiça comum o Tribunal Regional Federal e os Estaduais Tribunal de Justiça \cite{BRASIL1988}. Além destes, há também as turmas recursais que representam a segunda instância para os juizados especiais \cite{BRASIL2012}.
+Além dos Tribunais de segunda instância da justiça especial: o Tribunal Regional Eleitoral, o Tribunal Regional do Trabalho e o Tribunal Regional Militar, tem-se os Tribunais que compõe a justiça comum o Tribunal Regional Federal e os Estaduais Tribunal de Justiça \cite{BRASIL1988}. Há também as turmas recursais que representam a segunda instância para os juizados especiais \cite{BRASIL2012}.
 
 Nestes Tribunais, julga-se os Recursos Ordinários, as provas, as evidências, diferentemente dos Tribunais de instância superior \cite{JUNIOR2012}.
 
@@ -421,7 +425,7 @@ Nestes Tribunais, julga-se os Recursos Ordinários, as provas, as evidências, d
 
 Para se entender a organização da justiça de primeira instância, é preciso definir como estão estruturadas a separação da jurisdição dos Tribunais.
 
-Cada Estado e o Distrito Federal, divide-se em comarcas (ou foros), no qual cada um destes possuem uma ou mais varas especializadas  para as justiças comum e do trabalho \cite{JUNIOR2012}. Para a justiça militar, o território nacional está separado em circunscrições, que cada uma possue sua Auditoria Militar \cite{BRASIL1992}. Já para a justiça eleitoral, existem juntas eleitorais que subdividem os Estados e o Distrito Federal em zonas distintas \cite{BRASIL1988}.
+Cada Estado e o Distrito Federal, dividem-se em comarcas (ou foros), no qual cada um destes possue uma ou mais varas especializadas  para as justiças comum e do trabalho \cite{JUNIOR2012}. Para a Justiça Militar, o território nacional está separado em circunscrições, onde cada uma possue sua Auditoria Militar \cite{BRASIL1992}. Já para a Justiça Eleitoral, existem juntas eleitorais que subdividem os Estados e o Distrito Federal em zonas distintas \cite{BRASIL1988}.
 
 A seguir são apresentadas as definições:
 
@@ -433,10 +437,11 @@ A seguir são apresentadas as definições:
 
 
 \section{Código Processual Civil (CPC)}
+\label{sec:cpc}
 
 O CPC (Lei n.º 13.105/2015) é a lei que define como devem ser estruturados os processos civis. Ele é o meio pelo qual o juiz concretiza as leis, considerando os interesses entre as partes envolvidas.
 
-O processo civil possui duas categorias de procedimentos adotados o comum e especial. Neste trabalho tratar-se-á apenas do comum. A seguir, será apresentado para o entendimento das peças jurídicas avaliadas pelo STF, suas características em meio ao processo civil.
+O processo civil possui duas categorias de procedimentos adotados: o comum e especial. Neste trabalho tratar-se-á apenas do comum. A seguir, será apresentado para o entendimento das peças jurídicas avaliadas pelo STF, suas características em meio ao processo civil.
 
 \begin{figure}[h]
 	\centering
@@ -478,16 +483,16 @@ Após essa fase decisória, há o momento para as partes ou o Ministério Públi
 	\label{fig:processoSegunda}
 \end{figure}
 
-O Agravo Interno ou Regimental, deve ter em seu conteúdo apenas a informação sobre a questão agravada e direcionado diretamente ao tribunal competente.
+O Agravo Interno ou Regimental, deve ter em seu conteúdo apenas a informação sobre a questão agravada e encaminhado diretamente ao tribunal competente.
 
-Para Recurso Extraordinário, este deve ser apresentado ao Presidente ou Vice-Presidente do tribunal em que foi recorrida a decisão. O RE deve conter as informações sobre as razões do pedido, a exposição do quê ocorreu associado a regra do direito e discorrer sobre a validade da interposição do recurso. Quando houver recursos simultâneos ao STJ e STF, o processo deve, primeiramente, ser encaminhado ao STJ \cite{BRASIL2015}.
+Para Recurso Extraordinário, este deve ser apresentado ao Presidente ou Vice-Presidente do Tribunal em que foi recorrida a decisão. O RE deve conter as informações sobre as razões do pedido, a exposição do quê ocorreu associado a regra do direito e discorrer sobre a validade da interposição do recurso. Quando houver recursos simultâneos ao STJ e STF, o processo deve, primeiramente, ser encaminhado ao STJ \cite{BRASIL2015}.
 
 As características procedurais de um Agravo em Recurso Extraordinário (ARE) são iguais às de um RE. A distinção entre ambas as peças são seus conteúdos, no qual o RE será relacionado a alguma inconstitucionalidade e o ARE será um contraponto à inadmissão do recurso.
 
 \subsection{Instância superior - Supremo Tribunal Federal}
 
 A decisão proferida pelos ministros do STF sobre a Repercussão Geral (RG) são irrecorríveis. Caso haja RG, ou seja, ele cumpre os requisitos do § 1º do Artigo 1.035 do CPC (Lei n.º 13.105/2015)
-"Para efeito de repercussão geral, será considerada a existência ou não de questões relevantes do ponto de vista econômico, político, social ou jurídico que ultrapassem os interesses subjetivos do processo" \cite{BRASIL2015} o processo é distribuído para que os Ministros do Tribunal possam julgar a questão do RE. 
+"Para efeito de repercussão geral, será considerada a existência ou não de questões relevantes do ponto de vista econômico, político, social ou jurídico que ultrapassem os interesses subjetivos do processo"\ \cite{BRASIL2015} o processo é distribuído para que os Ministros do Tribunal possam julgar a questão do RE. 
 
 \begin{figure}[h]
 	\centering
@@ -496,6 +501,6 @@ A decisão proferida pelos ministros do STF sobre a Repercussão Geral (RG) são
 	\label{fig:processoSuperior}
 \end{figure}
 
-Na figura \ref{fig:processoSuperior}, a atividade de Avaliação do Ministro é um outro conjunto de atividades descritas no Regimento Interno do STF \cite{STF2016} e na Constituição Federal \cite{BRASIL1988}. 
+Na figura \ref{fig:processoSuperior}, a atividade de Avaliação do Ministro é um outro conjunto de atividades descritas no Regimento Interno do STF \cite{STF2016} e na Constituição Federal (\citeyear{BRASIL1988}). 
 
-Existem outras atividades desenvolvidas pelo STF que não foram apresentadas na Figura \ref{fig:processoSuperior}. Estas atividades estão relacionadas ao regimento interno \cite{STF2016} deste Tribunal e o que eles fazem com as peças. Ou seja, não há produção de novos documentos internamente os quais sejam analisados para definir se há ou não Repercussão Geral.
+Existem outras atividades desenvolvidas pelo STF que não foram apresentadas na Figura \ref{fig:processoSuperior}. Estas atividades estão relacionadas ao Regimento Interno \cite{STF2016} deste Tribunal e o que eles fazem com as peças. Ou seja, não há produção de novos documentos internamente os quais sejam analisados para definir se há ou não Repercussão Geral.
