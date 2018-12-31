@@ -10,7 +10,6 @@
 *.log
 
 #PDFs
-*.pdf
 
 *.lof
 *.lot
