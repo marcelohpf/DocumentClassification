@@ -1,0 +1,21 @@
+\begin{resumo}
+
+O Supremo Tribunal Federal tem a necessidade de separar as peças processuais jurídicas para facilitar a distribuição do processo internamente. Atualmente esta separação de volumes em peças e a classificação destas são feitas manualmente por uma equipe. A metodologia para o trabalho é a experimental. O processo de desenvolvimento é baseado na  pesquisa e no desenvolvimento projetos de aprendizado de máquina, no qual foram utilizados para elaborar único processo. Nos documentos jurídicos deste trabalho, utilizou-se apenas a primeira página, removeu-se amostras com conteúdos duplicados, foram pré-processando. Não identificou-se correlações entre as categorias. Fez-se a implementação de 9 modelos neurais: CNN, CNN-rand, MLP, BLSTM, LSTM, BRNN, BLSTM-C, CNN-LSTM, VDCNN e suas respectivas parametrizações a fim de alcançar os maiores valores das métricas: Acurácia, Precisão e Revocação. Com modelo de base SVM Linear, obteve-se acurácia de 0,93, precisão de 0,93 e revocação de 0,92. O modelo neural com as melhores métricas foi o LSTM com o dado pré-processado, seus resultados foram acurácia 0,94, precisão 0,93 e revocação 0,95. Os documentos jurídicos são computacionalmente separáveis e pode-se escolher entre os modelos SVM Linear, BLSTM e CNN-rand, pois foram os que sofreram menos \textit{overfitting}, possuem as melhores métricas no conjunto de teste e têm o tempo de predição entre 16ms a 72ms por documento. 
+
+ \vspace{\onelineskip}
+    
+ \noindent
+ \textbf{Palavras-chave}: Classificação de documentos; Aprendizado de máquina; Peças jurídicas.
+\end{resumo}
+
+% Opcional
+% \begin{resumo}[Abstract]
+%  \begin{otherlanguage*}{english}
+%   This is the english abstract.
+
+%   \vspace{\onelineskip}
+ 
+%   \noindent 
+%   \textbf{Key-words}: latex. abntex. text editoration.
+%  \end{otherlanguage*}
+% \end{resumo}

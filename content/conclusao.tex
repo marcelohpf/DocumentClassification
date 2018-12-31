@@ -1,0 +1,17 @@
+\chapter{Conclusão}
+
+O processo elaborado para projeto de pesquisa que envolva pesquisa em Aprendizado de Máquina, mostrou-se efetivo para o planejamento e execução da pesquisa.
+
+O estudo feito para os diferentes tipos de peças, envolveu o entendimento da organização do Poder Judiciário brasileiro e o do CPC (Lei 13.105/2015). O responsável pela confecção da peça, o tipo de conteúdo que ela contém, a quem é destinada e quais são  as peças necessárias para a avaliação de Repercussão Geral foram detalhadas para ter um bom entendimento do domínio do problema.
+
+A hipótese apresentada na Seção \ref{sec:hipotese}, de que não há textos iguais para peças diferentes, mostrou-se falsa após a aplicação do tratamentos de dados exposto no Apêndice \ref{sec:apendiceA}. No qual detectou-se documentos duplicados que foram removidos do conjunto de dados. Além disso, percebeu-se um aumento considerável ao comparar as matrizes de correlação de \textit{spearman}, onde houve um aumento geral na correlação direta de $0.24$ a $0.31$ entre as classes. 
+
+Foram experimentados diferentes modelos para a classificação de textos, o modelo SVM Linear obteve performance equiparável aos modelos mais robustos e complexos como o CNN-rand e BLSTM. O SVM alcançou os valores de 93$\%$ de acurácia, 93$\%$ de precisão e 92$\%$ de revocação, empatando na acurácia com CNN-rand e BLSTM, sendo melhor do que a precisão do CNN-rand e empatando com a revocação do BLSTM.
+
+Alguns modelos, apesar de apresentarem boa performance no conjunto de teste, foram desconsiderados por exigirem pré-processamento de dados ou por sofrerem de \textit{overfitting} mesmo utilizando de técnicas de redução de \textit{overfitting} como o \textit{dropout} \cite{srivastava_dropout:_2014}. O não uso de normalização dos pesos com \textit{l2} também poderia ter auxiliado a reduzir o \textit{overfitting}. 
+
+Dois objetivos do trabalho não foram alcançados. O primeiro: "elaboração de um dicionário para o contexto jurídico"\ não foi necessário, pois os modelos utilizados foram capazes de generalizar bem com dicionário extraído dos próprios documentos; O segundo: "levantar o estado da arte para a classificação de documentos"\ não foi alcançado, pois restringiu-se a busca por métodos que envolvessem principalmente modelos neurais. O resultado desta busca foi apresentada diretamente como modelos de referência no Capítulo \ref{sec:modelos}.
+
+Este trabalho possui lacunas não exploradas como a utilização ou criação de um \textit{Word Embedding} para o contexto jurídico e utilizá-lo nos modelos como sugerido por \citeonline{kim_convolutional_2014}. Outra lacula é relacionada às técnicas de agrupamento de modelos como o \textit{Deep Forest} \cite{zhou_deep_2017}, \textit{XGBoost} \cite{chen_xgboost:_2016}, dentre outros, no qual faz-se uso de vários modelos ao mesmo tempo para melhorar a acertividade, ou reduzir \textit{overfitting} e a variância.
+
+Além disso, os modelos neurais são caixas-pretas, ou seja, não se sabe como ele utiliza os dados para predizer uma categoria. Para trabalhos futuros, também propõe-se o uso de técnicas como \textit{SHapley Additive exPlanations} \cite{NIPS2017_7062}, \textit{Anchors as High-Precision Explanations} \cite{marco_tulio__ribeiro_anchors:_2018} e LIME \cite{lime}, as quais tem a  proposta de avaliar de forma agnóstica modelos preditivos e identificar quais dados da entrada possuem maior influência no resultado.

@@ -1,42 +1,59 @@
-\input{fixos/pacotes}
-\input{fixos/comandos}
-\input{fixos/novoscomandos}
+\documentclass[12pt,openright,twoside,a4paper,english,french,spanish]{abntex2}
 
-\input{editaveis/informacoes}
-\input{fixos/informacoes}
-\input{fixos/setup}
+% \usepackage{lscape}
+% \usepackage{subfig}
+% \usepackage{subcaption}
+\usepackage{subcaption} 
+\usepackage{float}
+\usepackage{cmap}	
+\usepackage{lmodern}	
+\usepackage[T1]{fontenc}	
+\usepackage[utf8]{inputenc}		
+\usepackage{lastpage}		
+\usepackage{indentfirst}
+\usepackage{color}	
+\usepackage{graphicx}	
+\usepackage{units}
+\usepackage[brazilian,hyperpageref]{backref}
+\usepackage[alf]{abntex2cite}
+\usepackage{bold-extra}
+\usepackage{eso-pic}
+\usepackage{makecell}
+\usepackage{amsmath}
+\usepackage{multirow}
+\usepackage{listings}
+\usepackage{footnote}
+
+\input{setup/comandos}
+\input{setup/informacoes}
+\input{setup/setup}
 
 \begin{document}
-\frenchspacing 
-\imprimircapa
-\imprimirfolhaderosto*
+    \frenchspacing 
+    \imprimircapa
+    \imprimirfolhaderosto*
+    
+    \input{content/pretextual}
+    \input{content/resumo}
+    \input{content/listas}
 
-\input{fixos/fichacatalografica}
-%\input{editaveis/errata}
-\input{fixos/folhadeaprovacao}
-%\input{editaveis/dedicatoria}
-%\input{editaveis/agradecimentos}
-%\input{editaveis/epigrafe}
-\input{editaveis/resumo}
-%\input{editaveis/asbstract}
-\input{fixos/listasautomaticas}
-\input{editaveis/abreviaturas}
-\input{editaveis/simbolos}
-\input{fixos/indiceautomatico}
-
-\textual
-
-\input{editaveis/introducao}
-\input{editaveis/metodologia}
-\input{editaveis/referencial}
-\input{editaveis/dados}
-\bookmarksetup{startatroot} 
-
-\postextual
-\bibliography{bibliografia} 
-\input{editaveis/apendices}
-%\input{editaveis/anexos}
-\printindex
+    \textual
+    
+    \input{content/introducao}
+    \input{content/metodologia}
+    \input{content/referencial}
+    \input{content/dados}
+    \input{content/modelos}
+    \input{content/analise}
+    \input{content/conclusao}
+    
+    \bookmarksetup{startatroot} 
+    
+    \postextual
+    \bibliography{bibliografia} 
+    \input{content/apendices}
+    % \input{content/anexos}
+    \printindex
 
 \end{document}
 
